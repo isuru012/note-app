@@ -8,6 +8,8 @@ class NoteManagerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		/*hi
+				hi*/
 	}
 
 }

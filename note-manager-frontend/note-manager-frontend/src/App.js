@@ -1,27 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          hi
-          hi
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const { isAuthenticated, loginWithRedirect } = useAuth0();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            loginWithRedirect();
+        } else {
+            setIsLoading(false);
+        }
+    }, [isAuthenticated, loginWithRedirect]);
+
+    if (isLoading) {
+        return (
+            <div>
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    return (
+        <div>
+            <p>You are now logged in!</p>
+        </div>
+    );
+};
 
 export default App;

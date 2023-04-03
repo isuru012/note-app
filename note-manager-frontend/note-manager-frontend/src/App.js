@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import logo from './logo.svg';
 import { useAuth0 } from '@auth0/auth0-react';
+import Home from "./pages/login/Login";
+import { Route,Routes } from 'react-router-dom';
+import Welcome from "./pages/welcome/Welcome";
 
-const App = () => {
-    const { isAuthenticated, loginWithRedirect } = useAuth0();
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            loginWithRedirect();
-        } else {
-            setIsLoading(false);
-        }
-    }, [isAuthenticated, loginWithRedirect]);
-
-    if (isLoading) {
-        return (
-            <div>
-                <p>Loading...</p>
-            </div>
-        );
-    }
-
+function App() {
     return (
-        <div>
-            <p>You are now logged in!</p>
+        <div >
+
+            <Routes>
+                <Route path='/' element={<Welcome/>}/>
+                <Route path='/login' element={<Home/>}/>
+
+            </Routes>
+
         </div>
     );
-};
+}
 
 export default App;

@@ -1,0 +1,15 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../assests/noteImage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -30,7 +30,7 @@ function Login() {
             setPassword(storedPassword);
             const signIn = async () => {
                 try {
-                    const response = await fetch(`http://localhost:8085/api/login/login?username=${storedUsername}&password=${storedPassword}`, {
+                    const response = await fetch(`http://localhost:8080/api/login/login?username=${storedUsername}&password=${storedPassword}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ function Login() {
         try {
 
 
-            const response = await fetch('http://localhost:8085/api/login/save', {
+            const response = await fetch('http://localhost:8080/api/login/save', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -40,10 +40,11 @@ function ViewAll() {
                 ))}
             </div>*/}
             {notes.map((note)=>(
-                <Card sx={{width:'30%'}}>
+                <Card sx={{width:'30%',display:"inline-block",margin:2}}>
                     <CardMedia
                         component="img"
                         height="140"
+                        width='30%'
                         image={"http://localhost:8080"+note.image}
 
                     />
